@@ -1,0 +1,61 @@
+                                                                                              仿写项目   
+         项目来源  https://github.com/michaelcheng429/meanstacktutorial
+         基本技术需求  node/mongo/js/html/css/html5/css3/angular
+         基本项目需求  node/mongo/angular
+         练习目的  综合应用，掌握知识要点   （基本流程）
+                                     1. 创建数据库，数据库模板的创建，数据库的操作，数据库与后端代码的交互，数据的增删改查
+                                     2. 后台框架的搭建，创建后端服务器，路由的处理，错误的处理，
+                                     3. 前端框架的搭建，单页面应用的路由处理，错误处理，请求处理
+        实现思路  
+               一、构建视图（view）
+               二、构建控制器（controll） 案例：点击一个按钮 触发控制器中的方法， 从数据库读取数据，或把页面数据输入存储到客户端
+               三、构建路由 （route）       个人理解: 点击一个事件， 触发相应的请求，后台接受请求，处理请求内容，根据请求的路由内容，触发                                                                             相应数据库操作方法，数据库返回操作状态（成功/失败）
+        
+        工作流程
+                  创建工作目录
+                          app---{
+                                    --public(静态资源目录 /公共资源){
+                                                 --index.hml       
+                                                  --controll（控制器/js文件目录）{
+                                                            --controll.js     
+                                                    } 
+                                     }
+                                     --server.js(创建服务器)             
+                            }
+
+
+                初始化项目 npm init
+                                 npm i express -S  安装exprss
+                                 npm i nodemon   自动检测修改文件无需，多次启动服务
+                                 修改package.json 删除 "main:'sever.js'" ,添加   "private": true  确保项目私有防止意外发布 
+                server.js
+                       var express = require('express'),
+                       app = express();
+	       app.use(express.static( __dirname +'/public'));//通过管道链  使用express 的static 方法访问静态文件资源（css/js/img等）
+	       app.listen(3000);
+                       console.log('server linstenr localhost:3000')
+                html      引入angular /css/ controll。js
+                              添加 ng-app 创建模板
+                                     ng-controller  变量控制器
+                                     ng-repeat  循环变量
+               controll.js
+                       var app = angular.module('myApp',[]);      //执行模板创建命令
+                       app.controller('AppCtrl',['$scope','$http',function($scope,$http){   // 变量控制器  $scope  控制器中的变量
+	        $http.get('/contactlist').success((res)=>{
+		console.log('我的get请求成功')
+		$scope.contactlist = res
+	         })
+                   }]);
+
+
+
+
+
+
+
+
+
+
+
+
+             

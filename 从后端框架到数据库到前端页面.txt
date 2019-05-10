@@ -1,0 +1,43 @@
+开发一个 ‘单页面应用’ 可以使用前端框架 
+开发一个动态可使用 web  离不开 数据库 + 后台接口
+
+
+
+
+
+
+
+1.先下载node   node官网下载安装   node-v测试是否安装成功并产看版本号，和环境变量问题
+2.下载mongodb 数据库  安装  在安装目录的bin 目录下运行mongod 
+        mongodb 文档     https://docs.mongodb.com/?_ga=2.115254607.934899703.1557387636-776348966.1557051993
+        启动mongo服务（在启动mongo 服务的时候 必须指定  数据目录   --》  mongod --dbpath 'd:\mongo\date'）   
+     优化启动服务 2.1  配置环境变量 将mongo 配置到全局
+                         2.2  新建启动文件  
+                                           2.2.1  startmongo.bat 文件 （https://www.cnblogs.com/pingfan1990/p/4558630.html）
+                                                 @echo off 
+			echo 你好 
+			::进入d盘
+			D: cd \Program Files\MongoDB\bin  mongod   --dbpath "D:\Program Files\MongoDB\data"
+                                      或  2.2.2  startmongo.cfg  文件（https://www.cnblogs.com/shaosks/p/5776619.html）
+                                               dbpath = D:\mongodb\data\db
+			logpath = D:\mongodb\data\log\mongod.log
+			logappend = true
+			port = 27017
+                                       或  2.2.3  注册到系统服务中  
+                                             mongod --install --dbpath = D:\mongodb\data\db --logpath = D:\mongodb\data\log\mongod.log
+                         2.3    启动数据库  mongod -f/--config  ‘d:\mongo\startmongo.cfg'(相应文件下的启动文件)’
+
+                         2.4   使用命令工具   npm i mongoose   
+                                   2.4.1  新建mongoose.js 文件   创建链接文件  暴露
+                                   2.4.2  创建表结构模板文件  
+                                   2.4.3  创建操作命令文件 ，并引入 模板文件（模板文件映射到 数据库）
+                         2.5  如果存在后端路由 ，创建路由文件后 引入数据库命令文件，相应的路由对应相应的  命令方法
+
+3. npm init 初始化项目  
+       3.1 项目基础内容配置  
+            3.1 后端框架的安装   1. 下载express 包   npm install express-generator -g （类似与下载vue-cli包）npm install -g @vue/cli （下			                                 载应用）
+		               2. 使用express 创建 骨架 express --view=pug myapp（类似于创建项目文件）vue create hello-world  （利用                                                   应用程序创建项目骨架）
+            3.2  或自己手动配置  入口文件 （app.js） 静态文件（public） 启动文件（bin\www）,路由文件（routes），数据库 启动文件（mongod                    ）, 数据库模板文件， 数据库命令文件
+
+
+        
