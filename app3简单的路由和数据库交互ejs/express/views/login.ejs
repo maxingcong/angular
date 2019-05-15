@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<style>
+  html ,body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      
+  }
+  .main{
+      position: relative;
+      width: 100%;
+      height: 100%;
+  }
+  .form{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin:auto;
+      display: inline-block;
+      padding: 10px;
+      background:rgba(0,0,0,.3);
+      width: 300px;
+      height: 300px;
+  }
+  .login-footer{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      height: 90px;
+  }
+  .btn-margin{
+      margin-right: 20px;
+  }
+  .login-input{
+      width: 100%
+  }
+</style>
+<body>
+    <div class="main">
+        <form class="form" action="/logins" method="post">
+           <legend align='center'>登录</legend>
+            <h3>账户</h3>
+            <input class="login-input" type="number" value="uName"/>
+            <h3>密码</h3>
+            <input class="login-input" type="password" value="password"/>
+            <div class="login-footer">
+                <button class="btn btn-info btn-margin" type="submit" >登录</button>
+                <button class="btn btn-primary" type="button"  onclick="sumbut()">注册</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+   function sumbut(){
+       let uName = document.getElementsByClassName('login-input')[0].value,
+       password = document.getElementsByClassName('login-input')[1].value
+       console.log(uName,password)
+       window.location.href('/login')
+   }
+
+</script>

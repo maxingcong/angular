@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <title>练习1</title>
+</head>
+<body>
+    <header>这里是选项</header>
+    <div class="main">
+      <div ng-view></div>
+    </div>
+    <footer>这里是底部</footer>
+</body>
+</html>
+<script type="text/javaScript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script type="text/javaScript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular-route.min.js"></script>
+
+<script type="text/ng-template" id="/ng1.html">
+  <!-- 定义模板 -->
+   <ul>
+      <li ng-repeat="item in list">
+           <a href="#/{{$index}}">
+              <input type="checkbox" value="item.isChexkBox"/>
+              {{item.num}}    {{item.isChange}}
+          </a>
+      </li>
+   </ul>
+</script>
+
+<script type="text/javaScript">
+  var app = angular.module('myApp',['ngRoute']);
+    // 初始化变量
+    app.factory('list',function(){
+      return  [
+                {num:'1',isChange:false},
+                {num:'2',isChange:false},
+                {num:'4',isChange:false},
+                {num:'3',isChange:false},
+                {num:'5',isChange:false},
+                {num:'6',isChange:false},
+                {num:'7',isChange:false},
+                {num:'8',isChange:false},
+                ]
+    })
+
+
+  //定义路由   配置
+  app.config(['$routeProvider',function ($routeProvider) {
+            $routeProvider.when('/', {
+                                       templateUrl:'/ng1.html',
+                                       controller:'AppCtrl'
+                                       });
+  }])
+
+ 
+  //添加控制器
+  app.controller('AppCtrl',['$scope','list',function($scope,list){
+      $scope.list = list
+  }])
+
+</script>

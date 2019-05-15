@@ -1,0 +1,83 @@
+<!DOCTYPE>
+<!-- 这是1.4.6 -->
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <title>练习1</title>
+</head>
+<body >
+<div ng-controller="AppCtrl">  
+    <ul>
+      <li ng-repeat="item in list">
+        <input type="checkbox" ng-model="item.isChange"/>
+           {{item.num}} {{item.isChange}}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+<script>
+    var myApp = angular.module('myApp',[]);
+    console.log(1)
+    myApp.controller('AppCtrl',['$scope',function($scope){
+      $scope.list = [
+                  {num:'1',isChange:false},
+                {num:'2',isChange:false},
+                {num:'4',isChange:false},
+                {num:'3',isChange:false},
+                {num:'5',isChange:false},
+                {num:'6',isChange:false},
+                {num:'7',isChange:false},
+                {num:'8',isChange:false},
+                ]
+    }])
+</script>
+
+
+<!-- 1.2.25版本 -->
+<!-- <!DOCTYPE>
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <title>练习1</title>
+</head>
+<body >
+  <div ng-controller="AppCtrl">  
+      1.2.可用
+  -->
+    <!-- <ul>
+      <li ng-repeat="item in list">
+        <input type="checkbox" ng-model="item.isChange"/>
+           {{item.num}} {{item.isChange}}
+      </li>
+    </ul>
+  </div>
+</body>
+</html> -->
+<!-- <script src="./controll/angular.min.js"></script> 
+//angular 1.2.25 
+-->
+<!-- <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script> -->
+
+<!-- <script>
+    console.log(1)
+    function AppCtrl($scope){
+      console.log(1)
+        $scope.list = [
+                  {num:'1',isChange:false},
+                {num:'2',isChange:false},
+                {num:'4',isChange:false},
+                {num:'3',isChange:false},
+                {num:'5',isChange:false},
+                {num:'6',isChange:false},
+                {num:'7',isChange:false},
+                {num:'8',isChange:false},
+                ]
+    }
+</script> -->

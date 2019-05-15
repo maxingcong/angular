@@ -1,0 +1,50 @@
+ 使用后端框架express 或 koa 
+1.   全局安装npm i exprss -g  -generator
+                  npm install koa-generator -g
+     
+    后端脚手架创建项目  express --view=ejs  app  (创建的视图模板引擎使用ejs语法) es5编写 回调地狱问题严重
+                                   koa --view=ejs koa_cli    es6编写解决了回调的繁琐性 没有route模块需要第三方回调解决方案Generator函数+yield语句                                                                          +Promise
+                                   koa2   async/await+Promise
+
+    项目介绍：
+	bin/www为配置文件，入口
+	node_modules为所依赖文件
+	public为所需静态文件
+	routes为路由文件
+	view为前端模板文件
+	app为中枢文件，内容管理汇总
+
+  koa1 中用到generator  是es6中的语法   是一种新的异步编程解决方案 类似状态机，还是一个遍历器对象生成函数
+          具体表现是在    1.函数的function 与函数名间加一个星号（*） 
+                                 2.可以利用 yield 定义不同的状态    yield就是暂停标志。   
+                                    yield必须用在generator 中 generator 函数内部嵌套普通函数 内部不能使用yield
+                                    yield表达式如果用在另一个表达式之中，必须放在圆括号里面。
+                                 3.next  执行下一步
+            function* f() {
+                 console.log('执行了！')
+           }
+           var generator = f();
+            setTimeout(function () {
+                 generator.next()
+          }, 2000);
+          函数f如果是普通函数，在为变量generator赋值时就会执行。但是，函数f是一个 Generator 函数，就变成只有调用next方法时，函数f才会           执行。
+
+
+
+1，app.js 
+      查看文件引入文件（路由，日志，cook，数据库，服务器，http-err，定义绝对根目录，错误，超时，静态资源目录，view视图目录）
+     
+ 
+2.实现登录页面 login
+  login利用  利用form实现post提交。。。
+  传统的请求get 利用a链接或者localtranr。href等实现
+                 post 利用表单的提交实现 或者 js创建虚拟form实现表单提交
+  后来ajax的出现丰富了请求服务
+
+
+3.创建路由页面  利用  body-parser 解析post提交，利用路由控件快速查看路由并跳转相应方法，路由控件第一次解析路由（app。js中），到route文件中 （时会自动拼接第一次解析路由） 如   app.use('/logins', usersRouter);   在route中  router.post('/', cd});  可以解释为 login下面的的摸一个访问，访问后通过 res.send (相应文字) res.render(响应ejs文件)
+
+
+
+ 
+

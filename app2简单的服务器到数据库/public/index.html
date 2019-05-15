@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-       <!--- <tr>
+        <tr>
           <td><input class="form-control" ng-model="contact.name"></td>
           <td><input class="form-control" ng-model="contact.email"></td>
           <td><input class="form-control" ng-model="contact.number"></td>
@@ -35,15 +35,15 @@
 		    <button class="btn btn-info" ng-click="update()">修改</button>&nbsp;&nbsp;
 			<button class="btn btn-info" ng-click="deselect()">创建</button>
 		   </td>
-        </tr>-->
+        </tr>
         <tr ng-repeat="item in contactlist">
 		<!--ng-hide="isShow" ng-init="hide = contactlist.length"-->
 		<!--ng-repeat   循环重新赋值   类似与 v-for   不需要key值-->
           <td>{{item.name}}</td>
           <td>{{item.email}}</td>
           <td>{{item.number}}</td>
-       <!---   <td><button class="btn btn-danger" ng-click="remove(item._id)">删除</button></td>
-          <td><button class="btn btn-warning" ng-click="edit(item._id)">编辑</button></td>   --->
+        <td><button class="btn btn-danger" ng-click="remove(item._id)">删除</button></td>
+         <td><button class="btn btn-warning" ng-click="edit(item._id)">编辑</button></td>
         </tr>
       </tbody>
     </table>
